@@ -38,15 +38,15 @@ public class HomePageTest {
 		driver.quit();
 	}
 	
-	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
+	@Test(enabled = false, groups = {"driver", "regression", "all"}, priority = 0)
 	public void testDriver() {
 		Assert.assertEquals(driver, driver);
 	}
 		
-	@Test(enabled = true, groups = {"products", "regression", "all"}, dependsOnGroups = {"driver"}, priority = 0)
+	//@Test(enabled = true, groups = {"products", "regression", "all"}, dependsOnGroups = {"driver"}, priority = 0)
+	@Test(enabled = true, groups = {"products", "regression", "all"}, priority = 0)
 	public void testOpenAllProductsPage()  {
-		String expected = "";
-		String actuals;
+		String expected = "qqq";
 		common.openAllProductsPage();
 		Assert.assertEquals(driver.getTitle(), expected, "title All Products Page doesn't match expected");
 	}

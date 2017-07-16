@@ -15,12 +15,12 @@ public class HomePageTest {
 	ContactUsPage contactUsPage;
 	ProductsPage productsPage;
 	
+	private String homePageUrl = "https://www.connectedio.com/";
 	
 	@BeforeClass(alwaysRun = true)
 		public void setUp() {	
 		
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -28,9 +28,11 @@ public class HomePageTest {
 		}
 				
 		common = new Common(driver);
-		contactUsPage = new ContactUsPage(driver);
+		//contactUsPage = new ContactUsPage(driver);
 		productsPage = new ProductsPage(driver);
 		
+		driver.get(homePageUrl);
+		driver.manage().window().maximize();
 		}
 	
 	@AfterClass(alwaysRun = true)

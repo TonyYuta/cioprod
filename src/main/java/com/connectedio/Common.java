@@ -26,16 +26,15 @@ import org.openqa.selenium.WebDriver;
 public class Common {
 	
 	private WebDriver driver;
-	
+	private String homePageUrl = "https://www.connectedio.com/";
 
-	
 	//cssSelector
 	public String homePageTab = ".active>a";
 	public String allProductsTab = ".mega-menu-dropdown.su_products .mega-menu.row .col-md-6.col-lg-offset-6.col-md-offset-6:nth-child(1)>li:first-child>a";
 	
 	public Common(WebDriver driver) {
 		this.driver = driver;
-
+		driver.get(homePageUrl);
 	}
 	
 	public void openHomePage() {

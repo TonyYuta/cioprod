@@ -18,15 +18,11 @@ public class HomePageTest {
 	private String homePageUrl = "https://www.connectedio.com/";
 	
 	@BeforeClass(alwaysRun = true)
-		public void setUp() {	
+		public void setUp() throws InterruptedException {	
 		
 		driver = new ChromeDriver();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-				
+        Thread.sleep(5000); 
+	
 		common = new Common(driver);
 		//contactUsPage = new ContactUsPage(driver);
 		productsPage = new ProductsPage(driver);

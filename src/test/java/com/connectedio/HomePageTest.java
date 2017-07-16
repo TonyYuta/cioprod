@@ -16,8 +16,16 @@ public class HomePageTest {
 	ProductsPage productsPage;
 	
 	
-	@BeforeClass
-		public void setUp() {
+	@BeforeClass(alwaysRun = true)
+		public void setUp() {	
+		
+		driver= new ChromeDriver();
+		driver.manage().window().maximize();
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 		driver = new ChromeDriver();
 		
@@ -27,7 +35,7 @@ public class HomePageTest {
 		
 		}
 	
-	@AfterClass
+	@AfterClass(alwaysRun = true)
 	public void tearDown() {
 		driver.quit();
 	}

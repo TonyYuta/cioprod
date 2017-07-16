@@ -72,7 +72,7 @@
                     <properties>
                         <property>
                             <name>testnames</name>
-                            <value>Prod</value>
+                            <value>Jenkinsfile</value>
                         </property>
                     </properties>
                 </configuration>

@@ -3,7 +3,7 @@
 <suite name="Code Coverage">
     <test name="Prod" preserve-order="true">
         <classes>
-            <class name="connectedioprod.HomePageTest"/>
+            <class name="connectedio.HomePageTest"/>
         </classes>
     </test>
 </suite>

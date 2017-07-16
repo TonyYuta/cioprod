@@ -19,16 +19,14 @@ public class HomePageTest {
 	@BeforeClass(alwaysRun = true)
 		public void setUp() {	
 		
-		driver= new ChromeDriver();
+		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		driver = new ChromeDriver();
-		
+				
 		common = new Common(driver);
 		contactUsPage = new ContactUsPage(driver);
 		productsPage = new ProductsPage(driver);

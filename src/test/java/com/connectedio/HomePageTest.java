@@ -24,7 +24,8 @@ public class HomePageTest {
 	@BeforeClass(alwaysRun = true)
 		public void setUp() {			
 		
-		System.setProperty("webdriver.gecko.driver","/Library/geckodriver");
+		//System.setProperty("webdriver.gecko.driver","/Library/geckodriver");
+		System.setProperty("webdriver.gecko.driver","/Users/Yutaka/Downloads/geckodriver");
 	    DesiredCapabilities capabilities=DesiredCapabilities.firefox();
 	    capabilities.setCapability("marionette", true);
 	    WebDriver driver = new FirefoxDriver();

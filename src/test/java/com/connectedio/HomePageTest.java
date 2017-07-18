@@ -28,11 +28,11 @@ public class HomePageTest {
 	    DesiredCapabilities capabilities=DesiredCapabilities.firefox();
 	    capabilities.setCapability("marionette", true);
 	    WebDriver driver = new FirefoxDriver();
-	    try {
+	/*    try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
+		}*/
 	 //   driver.manage().window().maximize();
 	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	  //  driver.navigate().to("https://www.yahoo.com/");
@@ -113,7 +113,7 @@ public class HomePageTest {
 	}
 		
 	//@Test(enabled = true, groups = {"products", "regression", "all"}, dependsOnGroups = {"driver"}, priority = 0)
-	@SuppressWarnings("javadoc")
+	//@SuppressWarnings("javadoc")
 	@Test(enabled = false, groups = {"products", "regression", "all"}, priority = 0)
 	public void testOpenAllProductsPage()  {
 		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -127,7 +127,7 @@ public class HomePageTest {
 	}
 	
 	//@Test(enabled = true, groups = {"products", "regression", "all"}, dependsOnGroups = {"driver"}, priority = 0)
-	@SuppressWarnings("javadoc")
+	//@SuppressWarnings("javadoc")
 	@Test(enabled = true, groups = {"products", "regression", "all"}, priority = 0)
 	public void testOpenLogInPopUp()  {
 		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

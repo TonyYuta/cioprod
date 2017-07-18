@@ -89,7 +89,7 @@
                         <property>
                             <name>testnames</name>
                   <!--      <value>Jenkinsfile</value> -->
-                       		<value>pages</value>
+                       		<value>Jenkinsfile</value>
                         </property>
                     </properties>
                 </configuration>

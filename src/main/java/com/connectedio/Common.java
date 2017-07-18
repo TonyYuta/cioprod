@@ -46,7 +46,6 @@ public class Common {
 		System.out.println("======================= debug 3 =======================");
 		driver.findElement(By.cssSelector(allProductsTab));
 		System.out.println("======================= debug 4 =======================");
-
 	}
 	
 	public String opeLogInPopUp() {

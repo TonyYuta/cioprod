@@ -20,19 +20,10 @@ public class HomePageTest {
 	
 	public String homePageUrl = "https://www.connectedio.com/";
 	//public String homePageUrl = "http://www.cvent.com/";
-
-	
 	
 	//@BeforeClass(alwaysRun = false)
 	@BeforeClass(alwaysRun = true)
-		public void setUp() {	
-//		
-//		System.setProperty("webdriver.gecko.driver", "/Library/geckodriver");
-//		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-//		capabilities.setCapability("marionette", true);
-//		WebDriver driver = new FirefoxDriver(capabilities);
-//		
-		
+		public void setUp() {			
 		
 		System.setProperty("webdriver.gecko.driver","/Library/geckodriver");
 	    DesiredCapabilities capabilities=DesiredCapabilities.firefox();

@@ -77,14 +77,14 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    
+                 <!--    
                     <properties>
 						<property>
 							<name>listener</name>
 							<value>net.sf.testng.databinding.TestAnnotationTransformer</value>
 						</property>
 					</properties>
-                    
+                  -->   
                     <properties>
                         <property>
                             <name>testnames</name>
@@ -181,9 +181,9 @@
                         <configuration>
                             <testFailureIgnore>true</testFailureIgnore>
                             
-                             <!--  
+                               
                             <argLine>${surefireArgLine}</argLine>
-                               -->
+                               
                             
                         </configuration>
                     </execution>
@@ -265,17 +265,14 @@
 				<artifactId>maven-project-info-reports-plugin</artifactId>
 				<version>2.9</version>
 			</plugin>
+			<!-- 
 			<plugin>
 				<groupId>ru.yandex.qatools.allure</groupId>
 				<artifactId>allure-maven-plugin</artifactId>
 				<version>2.5</version>
 			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<version>2.3</version>
-			</plugin>
+ -->
+		
             
             
         </plugins>

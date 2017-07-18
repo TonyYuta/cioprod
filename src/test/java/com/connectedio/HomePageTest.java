@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -90,6 +89,7 @@ public class HomePageTest {
 	
 	}	
 	
+/*	
 	//@AfterClass(alwaysRun = true)
 	@AfterClass
 	public void tearDown() {
@@ -106,6 +106,7 @@ public class HomePageTest {
 		}
 	}
 	
+*/	
 	@Test(enabled = false, groups = {"driver", "regression", "all"}, priority = 0)
 	public void testDriver() {
 		Assert.assertEquals(driver, driver);
@@ -137,17 +138,7 @@ public class HomePageTest {
 		actual = common.opeLogInPopUp();
 		System.out.println("======================= debug 8 =======================");
 		Assert.assertEquals(actual, expected, "Button LOGIN lable doesn't match expected");
-		try {
-			driver.close();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-		driver.quit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	
 	}
   
 	@Test(enabled = false)

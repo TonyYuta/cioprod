@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class HomePageTest {
@@ -20,6 +19,8 @@ public class HomePageTest {
 	public String homePageUrl = "https://www.connectedio.com/";
 	//public String homePageUrl = "http://www.cvent.com/";
 	
+	
+/*	
 	//@BeforeClass(alwaysRun = false)
 	@BeforeClass(alwaysRun = true)
 		public void setUp() {			
@@ -29,11 +30,11 @@ public class HomePageTest {
 	    DesiredCapabilities capabilities=DesiredCapabilities.firefox();
 	    capabilities.setCapability("marionette", true);
 	    WebDriver driver = new FirefoxDriver();
-	/*    try {
+	    try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}*/
+		}
 	 //   driver.manage().window().maximize();
 	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	  //  driver.navigate().to("https://www.yahoo.com/");
@@ -43,13 +44,13 @@ public class HomePageTest {
 		//FirefoxDriver driver = new FirefoxDriver();
 		
 		
-		/*
+		
 		System.setProperty("webdriver.gecko.driver","/Library/geckodriver");
 	    DesiredCapabilities capabilities=DesiredCapabilities.firefox();
 	    capabilities.setCapability("marionette", true);
 	    WebDriver driver = new FirefoxDriver(capabilities);
 		
-		*/
+		
 
 		//System.setProperty("webdriver.gecko.driver", "/Library/geckodriver");
 
@@ -66,7 +67,7 @@ public class HomePageTest {
        // driver = new FirefoxDriver(capabilities);
 		
 		//driver.get(homePageUrl);
-		/*
+		
 		driver.manage().window().maximize();
 		driver.get("http://www.cvent.com/");
         try {
@@ -76,19 +77,21 @@ public class HomePageTest {
 			e.printStackTrace();
 		} 
 		
-		*/
-		/*
+		
+		
 		System.out.println("Welcome to Maven World");
 	    System.setProperty("webdriver.gecko.driver", "/Library/geckodriver");
 	    WebDriver driver = new FirefoxDriver();       
 	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	    driver.navigate().to("http://www.google.com");
-		*/
+		
 		common = new Common(driver);
 		contactUsPage = new ContactUsPage(driver);
 		productsPage = new ProductsPage(driver);	
 	
 	}	
+	*/
+	
 	
 /*	
 	//@AfterClass(alwaysRun = true)
@@ -127,9 +130,19 @@ public class HomePageTest {
 		
 	}
 	
+	@Test(enabled = true, groups = {"setup", "regression", "all"})
+	public void testSetUp() {
+		System.setProperty("webdriver.gecko.driver","/Users/Yutaka/Downloads/geckodriver");
+	    DesiredCapabilities capabilities=DesiredCapabilities.firefox();
+	    capabilities.setCapability("marionette", true);
+	    WebDriver driver = new FirefoxDriver();
+	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.get(homePageUrl);
+	}
+	
 	//@Test(enabled = true, groups = {"products", "regression", "all"}, dependsOnGroups = {"driver"}, priority = 0)
 	//@SuppressWarnings("javadoc")
-	@Test(enabled = true, groups = {"products", "regression", "all"}, priority = 0)
+	@Test(enabled = false, groups = {"products", "regression", "all"}, priority = 0)
 	public void testOpenLogInPopUp()  {
 		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		String expected = "login";

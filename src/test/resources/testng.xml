@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Code Coverage">
-    <test name="Jenkinsfile" preserve-order="true">
+    <test name="prod" preserve-order="true">
         <classes>
             <class name="com.connectedio.HomePageTest"/>
         </classes>

@@ -67,6 +67,9 @@ public class HomePageTest {
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
 	public void browserInputTest() {
 		System.out.println("==================" + BROWSER + "==================");
+		System.out.println("==================" + BROWSER + "==================");
+		System.out.println("==================" + BROWSER + "==================");
+
 	}
 	
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
@@ -80,6 +83,12 @@ public class HomePageTest {
 	    //driver.manage().window().maximize();
 		String expected = "Connected IO provides superior and affordable cellular modems and routers for cloud-based machine-to-machine communications and the IoT :";
 		common.openAllProductsPage();
+		System.out.println("================== + testOpenAllProductsPage + ==================");
+		System.out.println("================== + testOpenAllProductsPage + ==================");
+		System.out.println("================== + testOpenAllProductsPage + ==================");
+		System.out.println("================== + testOpenAllProductsPage + ==================");
+		System.out.println("================== + testOpenAllProductsPage + ==================");
+
 		Assert.assertEquals(driver.getTitle(), expected, "title All Products Page doesn't match expected");		
 	}	
 	
@@ -90,6 +99,12 @@ public class HomePageTest {
 		String expected = "login";
 		String actual = "";
 		actual = common.opeLogInPopUp();
+		System.out.println("================== + testOpenLogInPopUp + ==================");
+		System.out.println("================== + testOpenLogInPopUp + ==================");
+		System.out.println("================== + testOpenLogInPopUp + ==================");
+		System.out.println("================== + testOpenLogInPopUp + ==================");
+		System.out.println("================== + testOpenLogInPopUp + ==================");
+
 		Assert.assertEquals(actual, expected, "Button LOGIN lable doesn't match expected");	
 	}
   

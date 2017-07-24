@@ -1,11 +1,10 @@
 package com.connectedio;
 
-import java.util.concurrent.TimeUnit;
+import static java.lang.System.getProperties;
 
-import org.openqa.selenium.Dimension;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -19,26 +18,33 @@ public class HomePageTest {
 	Common common;
 	ContactUsPage contactUsPage;
 	ProductsPage productsPage;
+	DriverFactory driverFactory;
+	
+	String param;
+
+	
+	   //reading the properties file to launch the driver in the correct env with CLA 
+    private static final Properties ENV_PROPERTIES = getProperties();
+    //specifying the projects environment  
+    public static final String ENV_NAME = (String) ENV_PROPERTIES.get("env");
+    //specifying a browser 
+    public static final String BROWSER = (String) ENV_PROPERTIES.get("browser");
+    //specifying the username 
+    public static final String USERNAME = (String) ENV_PROPERTIES.get("username");
+    //specifying the password 
+    public static final String PASSWORD = (String) ENV_PROPERTIES.get("password");
+    //specifying the secret answer 
+    public static final String SECRET = (String) ENV_PROPERTIES.get("secret");
+    
 	
 	public String homePageUrl = "https://www.connectedio.com/";
 		
 //	@BeforeClass(alwaysRun = true)
 	@BeforeMethod(alwaysRun = true)
 		public void setUp() {			
-		
-		System.setProperty("webdriver.gecko.driver","/Library/geckodriver");
-	    DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-	    capabilities.setCapability("marionette", true);
-	    driver = new FirefoxDriver(capabilities);
-	    driver.manage().window().setSize(new Dimension(1920, 1080));
-
-/*	    try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}*/
-	    driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-
+				
+		driverFactory = new DriverFactory();
+		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
 		driver.get(homePageUrl);
 		common = new Common(driver);
 		contactUsPage = new ContactUsPage(driver);
@@ -57,7 +63,12 @@ public class HomePageTest {
 		} catch (Exception e) {
 		}
 	}
-		
+	
+	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
+	public void browserInputTest() {
+		System.out.println("==================" + BROWSER + "==================");
+	}
+	
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
 	public void testDriver() {
 		Assert.assertEquals(driver, driver);

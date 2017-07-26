@@ -75,6 +75,12 @@
                             <name>testnames</name>
                             <value>prod</value>
                         </property>
+                        
+                        <systemPropertyVariables>
+                  			<browser>${browser}</browser>
+                		</systemPropertyVariables>
+                        
+                        
                     </properties>
                 </configuration>
             </plugin>

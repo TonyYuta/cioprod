@@ -78,6 +78,7 @@
                         
                         <systemPropertyVariables>
                   			<browser>${browser}</browser>
+                  			<groups>${group}</groups>
                 		</systemPropertyVariables>
                         
                         

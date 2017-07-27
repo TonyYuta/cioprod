@@ -22,27 +22,25 @@ public class HomePageTest {
 	
 	String param;
 
-	
-	   //reading the properties file to launch the driver in the correct env with CLA 
-    private static final Properties ENV_PROPERTIES = getProperties();
+	//reading the properties file to launch the driver in the correct env with CLA 
+    private static  Properties ENV_PROPERTIES = getProperties();
     //specifying the projects environment  
-    public static final String ENV_NAME = (String) ENV_PROPERTIES.get("env");
+    public static  String ENV_NAME = (String) ENV_PROPERTIES.get("env");
     //specifying a browser 
-    public static final String BROWSER = (String) ENV_PROPERTIES.get("browser");
+    public static String BROWSER = (String) ENV_PROPERTIES.get("browser");
     //specifying the username 
-    public static final String USERNAME = (String) ENV_PROPERTIES.get("username");
+    public static  String USERNAME = (String) ENV_PROPERTIES.get("username");
     //specifying the password 
-    public static final String PASSWORD = (String) ENV_PROPERTIES.get("password");
+    public static  String PASSWORD = (String) ENV_PROPERTIES.get("password");
     //specifying the secret answer 
-    public static final String SECRET = (String) ENV_PROPERTIES.get("secret");
+    public static  String SECRET = (String) ENV_PROPERTIES.get("secret");
     
-	
+    
 	public String homePageUrl = "https://www.connectedio.com/";
 		
 //	@BeforeClass(alwaysRun = true)
 	@BeforeMethod(alwaysRun = true)
 		public void setUp() {			
-				
 		driverFactory = new DriverFactory();
 		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
 		driver.get(homePageUrl);
@@ -69,7 +67,6 @@ public class HomePageTest {
 		System.out.println("==================" + BROWSER + "==================");
 		System.out.println("==================" + BROWSER + "==================");
 		System.out.println("==================" + BROWSER + "==================");
-
 	}
 	
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
@@ -77,7 +74,9 @@ public class HomePageTest {
 		Assert.assertEquals(driver, driver);
 	}
 		
-	@Test(enabled = true, groups = {"products", "regression", "all"}, dependsOnGroups = {"driver"}, priority = 0)
+	//@Test(enabled = true, groups = {"products", "regression", "all"}, dependsOnGroups = {"driver"}, priority = 0)
+	//@Parameters({ "browser", "groups" })
+	@Test(enabled = true, groups = {"products", "regression", "all"}, priority = 0)
 	public void testOpenAllProductsPage()  {
 		//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	    //driver.manage().window().maximize();

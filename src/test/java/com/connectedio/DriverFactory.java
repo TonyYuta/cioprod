@@ -1,7 +1,5 @@
 package com.connectedio;
 
-import static java.util.concurrent.TimeUnit.SECONDS;
-
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Dimension;
@@ -25,8 +23,8 @@ public class DriverFactory {
 	DriverFactory() {}//constructor
 	
 	// defining timeouts Jun21RJR
-	private static final int IMPLICIT_WAIT = 7;
-	private static final int SCRIPT_LOAD_WAIT = 7;
+	static final int IMPLICIT_WAIT = 7;
+	static final int SCRIPT_LOAD_WAIT = 7;
 	//getDriver will return the driverType user input 
 	// it is synchronized for multi Threading safety
 	public static synchronized WebDriver getDriver(String driverType) {
@@ -78,8 +76,9 @@ public class DriverFactory {
 		} // driver type switchcase
 
 		WebDriver.Timeouts timeouts = driver.manage().timeouts();
-		timeouts.implicitlyWait(IMPLICIT_WAIT, SECONDS);
-		timeouts.setScriptTimeout(SCRIPT_LOAD_WAIT, SECONDS);
+		timeouts.implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
+		timeouts.setScriptTimeout(SCRIPT_LOAD_WAIT, TimeUnit.SECONDS);
+
 		addShutDownHook(driver);
 		return driver;
 	} // getDriver method

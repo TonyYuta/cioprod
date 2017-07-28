@@ -25,14 +25,24 @@ import org.openqa.selenium.WebDriver;
  */
 public class Common {
 	
-	private WebDriver driver;
+	WebDriver driver;
 
 	//cssSelector
 	public String homePageTab = ".active>a";
 	public String allProductsTab = ".mega-menu-dropdown.su_products .mega-menu.row .col-md-6.col-lg-offset-6.col-md-offset-6:nth-child(1)>li:first-child>a";
 	public String logInBtn = ".header_login.clickon_to_drop>a";
 	public String closeLogInPopUp = ".close.fa.fa-close";
-	public String loginBtnInPopUp = "#submit_button";
+	public String userNameField = "#loginForm > input[type='text']:nth-child(1)";
+	public String passwordField = "#loginForm > input[type='password']:nth-child(2)";
+	public String closeLoginPopupBtn = ".close.fa.fa-close";
+	
+	// id
+	public String pickMeSignedInCheckbox = "checkbox_id";
+//	public String loginBtnInPopUp = "#submit_button";
+	public String loginBtnInPopUp = "submit_button";
+
+	// className
+	public String loginErrorMsg = "log_error";
 	
 	public Common(WebDriver driver) {
 		this.driver = driver;
@@ -43,17 +53,21 @@ public class Common {
 	}
 	
 	public void openAllProductsPage() {
-		System.out.println("======================= debug 3 =======================");
 		driver.findElement(By.cssSelector(allProductsTab));
-		System.out.println("======================= debug 4 =======================");
 	}
 	
 	public String opeLogInPopUp() {
-		System.out.println("======================= debug 6 =======================");
 		driver.findElement(By.cssSelector(logInBtn)).click();
-		return driver.findElement(By.cssSelector(loginBtnInPopUp)).getAttribute("name");
+		return driver.findElement(By.id(loginBtnInPopUp)).getAttribute("name");
 	}
 
-	
+	public String loginUser(String userName, String password) {
+		String result = "";
+		driver.findElement(By.cssSelector(userNameField)).sendKeys(userName);
+		driver.findElement(By.cssSelector(passwordField)).sendKeys(password);
+		driver.findElement(By.id(loginBtnInPopUp)).click();
+		result = driver.findElement(By.className(loginErrorMsg)).getText();
+		return result;
+	}
 
 }

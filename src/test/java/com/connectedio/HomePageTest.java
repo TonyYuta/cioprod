@@ -36,7 +36,7 @@ public class HomePageTest extends TestData {
 	*/
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
 	public void browserInputTest() {
-		System.out.println("================= stash 02 " + BROWSER + "==================");
+		System.out.println("================= stash 03 " + BROWSER + "==================");
 	}
 	
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)

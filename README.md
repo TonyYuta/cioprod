@@ -12,12 +12,12 @@ mvn clean test -DdriverType=firefox -Denv=uat -Dusername=x... -Dpassword=1... -D
 
 # Supported browsers:
 - Firefox v.54
-- Chrome (not implemented yet)
-- PhantomJS (v1.3) ( (not implemented yet))
+- Chrome Version 59.0.3071.115 (Official Build) (64-bit)
+- PhantomJS (v1.3) (not implemented yet)
 
 # CLA Flags
--DdriverType (Specifies the browser not case) (chrome/firefox/phantom)
--Denv (environment) (prod/uat)
+-Ddriver (Specifies the browser not case) (chrome/firefox/phantom)
+-Dgroups (Specify groups for testing)
 -Dusername (username of your choice depending on the environment you want)
 -Dpassword (passowrd for the username)
 -Dsecret (the Secret answer for the particular username)

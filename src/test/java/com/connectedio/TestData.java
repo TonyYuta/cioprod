@@ -15,6 +15,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 /**
@@ -57,7 +58,35 @@ public class TestData {
     //specifying the secret answer 
     public static  String SECRET = (String) ENV_PROPERTIES.get("secret");
 	
-	@BeforeMethod(alwaysRun = true)
+/*    @BeforeClass(alwaysRun = true)
+    public void setUpBeforeClass() {
+    		driverFactory = new DriverFactory();
+    		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
+    		driver.get(homePageUrl);
+    		common = new Common(driver);
+    		loginPage = new LoginPage(driver);
+    		contactUsPage = new ContactUsPage(driver);
+    		productsPage = new ProductsPage(driver);
+    }*/
+    
+    @BeforeClass(alwaysRun = true)
+    public void setUpBeforeClass() {
+    	driverFactory = new DriverFactory();
+    	driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
+    	common = new Common(driver);
+    	loginPage = new LoginPage(driver);
+    	contactUsPage = new ContactUsPage(driver);
+    	productsPage = new ProductsPage(driver);
+    }
+    
+    @BeforeMethod(alwaysRun = true)
+		public void setUpBeforeMethod() {	
+//		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+//		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
+		driver.get(homePageUrl);
+	}
+    
+/*	@BeforeMethod(alwaysRun = true)
 		public void setUp() {			
 		driverFactory = new DriverFactory();
 		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
@@ -66,7 +95,7 @@ public class TestData {
 		loginPage = new LoginPage(driver);
 		contactUsPage = new ContactUsPage(driver);
 		productsPage = new ProductsPage(driver);
-	}	
+	}*/	
 	
 	@AfterMethod() 
 	public void afterTC() {
@@ -74,7 +103,8 @@ public class TestData {
 	}	
 	
 	@AfterClass(alwaysRun = false)
-	public void tearDown() {
+	public void tearDownAfterClass() {
+//		driverFactory.closeBrowser(driver);
 		driverFactory.quitBrowser(driver);
 	}
 	    

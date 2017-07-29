@@ -13,6 +13,9 @@ import static java.lang.System.getProperties;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 /**
  * TestData //ADDD (description of class)
@@ -34,6 +37,10 @@ public class TestData {
 	public String homePageUrl = "https://www.connectedio.com/";
 
 	Common common;
+	LoginPage loginPage;
+	ContactUsPage contactUsPage;
+	ProductsPage productsPage;
+	
 	DriverFactory driverFactory;
 
 	WebDriver driver;
@@ -51,4 +58,32 @@ public class TestData {
     //specifying the secret answer 
     public static  String SECRET = (String) ENV_PROPERTIES.get("secret");
 	
+	
+	
+//	@BeforeClass(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
+		public void setUp() {			
+		driverFactory = new DriverFactory();
+		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
+		driver.get(homePageUrl);
+		common = new Common(driver);
+		loginPage = new LoginPage(driver);
+		contactUsPage = new ContactUsPage(driver);
+		productsPage = new ProductsPage(driver);
+	}	
+	
+	@AfterMethod() 
+	public void afterTC() {
+		//driver.close();
+		//driver.quit();
+		driverFactory.closeBrowser(driver);
+	}	
+	
+	@AfterClass(alwaysRun = false)
+	public void tearDown() {
+		driverFactory.quitBrowser(driver);
+	}
+	
+    
+    
 }

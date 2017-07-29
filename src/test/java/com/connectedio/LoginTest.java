@@ -9,9 +9,6 @@
 package com.connectedio;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
@@ -27,7 +24,7 @@ import org.testng.annotations.Test;
  *
  */
 public class LoginTest extends TestData {
-	
+/*	
 	LoginPage loginPage;
 	
 //	@BeforeClass(alwaysRun = true)
@@ -51,7 +48,7 @@ public class LoginTest extends TestData {
 	public void tearDown() {
 		driverFactory.quitBrowser(driver);
 	}
-	
+	*/
 	@Test(enabled = true, groups = {"login", "products", "regression", "all"}, priority = 0)
 	public void testInvalidCredentialsErrorFromLoginPage() {
 		String expected = "Invalid Email or Password";

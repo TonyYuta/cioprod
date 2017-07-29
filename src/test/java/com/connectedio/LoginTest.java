@@ -55,7 +55,7 @@ public class LoginTest extends TestData {
 		String actual = "";
 		common.openHomePage();
 		common.opeLogInPopUp();
-		common.loginUser(userName01, invalidPassword);
+		common.loginUserInPopUp(userName01, invalidPassword);
 		actual = loginPage.loginUserOnLoginPage(userEmail01, invalidPassword);
 		Assert.assertEquals(actual, expected, "login not successfull");
 	}

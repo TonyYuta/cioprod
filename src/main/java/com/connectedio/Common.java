@@ -61,7 +61,7 @@ public class Common {
 		return driver.findElement(By.id(loginBtnInPopUp)).getAttribute("name");
 	}
 
-	public String loginUser(String userName, String password) {
+	public String loginUserInPopUp(String userName, String password) {
 		String result = "";
 		driver.findElement(By.cssSelector(userNameField)).sendKeys(userName);
 		driver.findElement(By.cssSelector(passwordField)).sendKeys(password);

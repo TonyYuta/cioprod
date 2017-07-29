@@ -67,8 +67,10 @@ public class HomePageTest extends TestData {
 		String expected = "Invalid Email or Password";
 		String actual = "";
 		common.openHomePage();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
 		common.opeLogInPopUp();
-		actual = common.loginUser(userName01, invalidPassword);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		actual = common.loginUserInPopUp(userName01, invalidPassword);
 		Assert.assertEquals(actual, expected, "login not successfull");
 	}
 	

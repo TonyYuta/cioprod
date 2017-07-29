@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 public class HomePageTest extends TestData {
 	
+	
 /*	ContactUsPage contactUsPage;
 	ProductsPage productsPage;*/
 	
@@ -35,7 +36,7 @@ public class HomePageTest extends TestData {
 	*/
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)
 	public void browserInputTest() {
-		System.out.println("==================" + BROWSER + "==================");
+		System.out.println("================= stash 02 " + BROWSER + "==================");
 	}
 	
 	@Test(enabled = true, groups = {"driver", "regression", "all"}, priority = 0)

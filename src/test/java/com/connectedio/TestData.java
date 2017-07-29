@@ -39,8 +39,7 @@ public class TestData {
 	Common common;
 	LoginPage loginPage;
 	ContactUsPage contactUsPage;
-	ProductsPage productsPage;
-	
+	ProductsPage productsPage;	
 	DriverFactory driverFactory;
 
 	WebDriver driver;
@@ -58,9 +57,6 @@ public class TestData {
     //specifying the secret answer 
     public static  String SECRET = (String) ENV_PROPERTIES.get("secret");
 	
-	
-	
-//	@BeforeClass(alwaysRun = true)
 	@BeforeMethod(alwaysRun = true)
 		public void setUp() {			
 		driverFactory = new DriverFactory();
@@ -74,8 +70,6 @@ public class TestData {
 	
 	@AfterMethod() 
 	public void afterTC() {
-		//driver.close();
-		//driver.quit();
 		driverFactory.closeBrowser(driver);
 	}	
 	
@@ -83,7 +77,5 @@ public class TestData {
 	public void tearDown() {
 		driverFactory.quitBrowser(driver);
 	}
-	
-    
-    
+	    
 }

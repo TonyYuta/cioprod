@@ -42,15 +42,14 @@ public class LoginTest extends TestData {
 	
 	@AfterMethod() 
 	public void afterTC() {
-		driver.close();
+		//driver.close();
+		//driver.quit();
+		driverFactory.closeBrowser(driver);
 	}	
 	
-	@AfterClass(alwaysRun = true)
+	@AfterClass(alwaysRun = false)
 	public void tearDown() {
-		try {
-			driver.quit();
-		} catch (Exception e) {
-		}
+		driverFactory.quitBrowser(driver);
 	}
 	
 	@Test(enabled = true, groups = {"login", "products", "regression", "all"}, priority = 0)

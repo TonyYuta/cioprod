@@ -84,18 +84,32 @@ public class DriverFactory {
 	} // getDriver method
 	  	  
 	  // close will be used to close driver browser window 
-		public static synchronized void close(WebDriver driver) {
+		public static synchronized void closeBrowser(WebDriver driver) {
 			if (driver != null) {
 				try {
 					driver.getCurrentUrl();
 					driver.close();
-					driver.quit();
+					//driver.quit();
 					System.out.printf("\n\n RJR: driver instance closed successfully =)\n\n");
 				} catch (Throwable e) {
 					System.out.printf("\n\n RJR: an exception was caught %s\n\n",e);
 				} //trycatch statement
 			} // if statement
 		} // close method
+		
+		  // close will be used to quit driver browser 
+			public static synchronized void quitBrowser(WebDriver driver) {
+				if (driver != null) {
+					try {
+						driver.getCurrentUrl();
+						driver.close();
+						driver.quit();
+						System.out.printf("\n\n RJR: driver instance closed successfully =)\n\n");
+					} catch (Throwable e) {
+						System.out.printf("\n\n RJR: an exception was caught %s\n\n",e);
+					} //trycatch statement
+				} // if statement
+			} // close method
 
 			//addShutDownHook will be used to shut down all Threads of driver 
 		private static synchronized void addShutDownHook(final WebDriver driver) {

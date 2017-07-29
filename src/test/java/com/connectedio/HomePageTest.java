@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 
 public class HomePageTest extends TestData {
 	
-	
 	ContactUsPage contactUsPage;
 	ProductsPage productsPage;
 	

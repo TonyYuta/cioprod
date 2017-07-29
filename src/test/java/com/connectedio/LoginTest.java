@@ -53,7 +53,7 @@ public class LoginTest extends TestData {
 	}
 	
 	@Test(enabled = true, groups = {"login", "products", "regression", "all"}, priority = 0)
-	public void testInvalidCredentialsErrorFromPopUpLogin() {
+	public void testInvalidCredentialsErrorFromLoginPage() {
 		String expected = "Invalid Email or Password";
 		String actual = "";
 		common.openHomePage();
@@ -61,7 +61,6 @@ public class LoginTest extends TestData {
 		common.loginUser(userName01, invalidPassword);
 		actual = loginPage.loginUserOnLoginPage(userEmail01, invalidPassword);
 		Assert.assertEquals(actual, expected, "login not successfull");
-	
 	}
 	
 

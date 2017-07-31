@@ -24,41 +24,55 @@ import org.testng.annotations.Test;
  *
  */
 public class LoginTest extends TestData {
-/*	
-	LoginPage loginPage;
-	
-//	@BeforeClass(alwaysRun = true)
-	@BeforeMethod(alwaysRun = true)
-		public void setUp() {			
-		driverFactory = new DriverFactory();
-		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
-		driver.get(homePageUrl);
-		common = new Common(driver);
-		loginPage = new LoginPage(driver);
-	}	
-	
-	@AfterMethod() 
-	public void afterTC() {
-		//driver.close();
-		//driver.quit();
-		driverFactory.closeBrowser(driver);
-	}	
-	
-	@AfterClass(alwaysRun = false)
-	public void tearDown() {
-		driverFactory.quitBrowser(driver);
+
+	@Test(enabled = false, groups = {"products", "login", "regression", "all"}, priority = 2)
+	public void testInvalidCredentialsErrorFromPopUpLogin() {
+		String expected = "Invalid Email or Password";
+		String actual = "";
+		common.openHomePage();
+		common.opeLogInPopUp();
+		actual = common.loginInvalidUserInPopUp(invalidUserName01, invalidPwd01);
+		Assert.assertEquals(actual, expected, "login not successfull");
 	}
-	*/
-	@Test(enabled = true, groups = {"login", "products", "regression", "all"}, priority = 0)
+	
+	@Test(enabled = false, groups = {"login", "regression", "all"}, priority = 1)
 	public void testInvalidCredentialsErrorFromLoginPage() {
 		String expected = "Invalid Email or Password";
 		String actual = "";
 		common.openHomePage();
 		common.opeLogInPopUp();
-		common.loginUserInPopUp(userName01, invalidPassword);
-		actual = loginPage.loginUserOnLoginPage(userEmail01, invalidPassword);
+		actual = loginPage.loginUserOnLoginPage(invalidUserEmail01, invalidPwd01);
 		Assert.assertEquals(actual, expected, "login not successfull");
 	}
+	
+	@Test(enabled = true, groups = {"login", "regression", "all"}, priority = 0)
+	public void testValidCredentialsLoginPopUp() {
+		String expected = "Hi, Tony Yutaka";
+		String actual = "";
+		common.openHomePage();
+		common.opeLogInPopUp();
+		actual = common.loginValidUserInPopUp(validUserName01, validPwd01);
+		Assert.assertEquals(actual, expected, "Username title doesn't match to User");
+	}
+	
+	@Test(enabled = false, groups = {"login", "regression", "all"}, priority = 0)
+	public void testValidCredentialsLoginPopUp02() {
+		String expected = "Hi, Tony Yutaka";
+		String actual = "";
+		common.openHomePage();
+		common.opeLogInPopUp();
+		actual = common.loginValidUserInPopUp(validUserName01, validPwd01);
+		Assert.assertEquals(actual, expected, "Username title doesn't match to User");
+	}
+	
+	@Test(enabled = true, groups = {"login", "regression", "all"}, priority = 0)
+	public void testValidCredentialsLoginPopUp03() {
+		String expected = "HomePage";
+		String actual = "HomePage";
+		common.openHomePage();
+		Assert.assertEquals(actual, expected, "title doesn't match to expected");
+	}
+	
 	
 
 }

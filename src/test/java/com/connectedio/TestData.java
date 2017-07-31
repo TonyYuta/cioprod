@@ -32,10 +32,15 @@ import org.testng.annotations.BeforeMethod;
  */
 public class TestData {
 	
-	public String userName01 = "userName01";	 
-	public String userEmail01 = "userCIOEmail01@mail.com";	 
-	public String invalidPassword = "invalidPassword";  
-	public String homePageUrl = "https://www.connectedio.com/";
+	public String invalidUserName01 	= "userName01";	 
+	public String invalidUserEmail01 	= "userCIOEmail01@mail.com";	 
+	public String invalidPwd01 			= "invalidPassword";  
+
+	public String validUserName01 		= "yutakatony@mail.com"; 
+	public String validEmail01 			= "yutakatony@mail.com"; 
+	public String validPwd01 			= "vitoto";  
+
+	public String homePageUrl 			= "https://www.connectedio.com/";
 
 	Common common;
 	LoginPage loginPage;
@@ -57,17 +62,6 @@ public class TestData {
     public static  String PASSWORD = (String) ENV_PROPERTIES.get("password");
     //specifying the secret answer 
     public static  String SECRET = (String) ENV_PROPERTIES.get("secret");
-	
-/*    @BeforeClass(alwaysRun = true)
-    public void setUpBeforeClass() {
-    		driverFactory = new DriverFactory();
-    		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
-    		driver.get(homePageUrl);
-    		common = new Common(driver);
-    		loginPage = new LoginPage(driver);
-    		contactUsPage = new ContactUsPage(driver);
-    		productsPage = new ProductsPage(driver);
-    }*/
     
     @BeforeClass(alwaysRun = true)
     public void setUpBeforeClass() {
@@ -81,22 +75,14 @@ public class TestData {
     
     @BeforeMethod(alwaysRun = true)
 		public void setUpBeforeMethod() {	
-//		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
-//		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
+    	try {
+    	Thread.sleep(2000);
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
 		driver.get(homePageUrl);
 	}
     
-/*	@BeforeMethod(alwaysRun = true)
-		public void setUp() {			
-		driverFactory = new DriverFactory();
-		driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
-		driver.get(homePageUrl);
-		common = new Common(driver);
-		loginPage = new LoginPage(driver);
-		contactUsPage = new ContactUsPage(driver);
-		productsPage = new ProductsPage(driver);
-	}*/	
-	
 	@AfterMethod() 
 	public void afterTC() {
 		driverFactory.closeBrowser(driver);
@@ -104,7 +90,6 @@ public class TestData {
 	
 	@AfterClass(alwaysRun = false)
 	public void tearDownAfterClass() {
-//		driverFactory.closeBrowser(driver);
 		driverFactory.quitBrowser(driver);
 	}
 	    

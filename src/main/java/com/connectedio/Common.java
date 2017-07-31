@@ -35,10 +35,10 @@ public class Common {
 	public String userNameField = "#loginForm > input[type='text']:nth-child(1)";
 	public String passwordField = "#loginForm > input[type='password']:nth-child(2)";
 	public String closeLoginPopupBtn = ".close.fa.fa-close";
+	public String headerUser = ".header_user_message>span";
 	
 	// id
 	public String pickMeSignedInCheckbox = "checkbox_id";
-//	public String loginBtnInPopUp = "#submit_button";
 	public String loginBtnInPopUp = "submit_button";
 
 	// className
@@ -61,12 +61,21 @@ public class Common {
 		return driver.findElement(By.id(loginBtnInPopUp)).getAttribute("name");
 	}
 
-	public String loginUserInPopUp(String userName, String password) {
+	public String loginInvalidUserInPopUp(String userName, String password) {
 		String result = "";
 		driver.findElement(By.cssSelector(userNameField)).sendKeys(userName);
 		driver.findElement(By.cssSelector(passwordField)).sendKeys(password);
 		driver.findElement(By.id(loginBtnInPopUp)).click();
 		result = driver.findElement(By.className(loginErrorMsg)).getText();
+		return result;
+	}
+	
+	public String loginValidUserInPopUp(String userName, String password) {
+		String result = "Hi, Tony Yutaka_";
+		driver.findElement(By.cssSelector(userNameField)).sendKeys(userName);
+		driver.findElement(By.cssSelector(passwordField)).sendKeys(password);
+		driver.findElement(By.id(loginBtnInPopUp)).click();
+		result = driver.findElement(By.cssSelector(headerUser)).getText();
 		return result;
 	}
 

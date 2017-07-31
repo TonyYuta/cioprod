@@ -22,13 +22,13 @@ public class DriverFactory {
 	// private constructor does not allow to create class into object 
 	DriverFactory() {}//constructor
 	
-	// defining timeouts Jun21RJR
+	// defining timeouts 
 	static final int IMPLICIT_WAIT = 7;
 	static final int SCRIPT_LOAD_WAIT = 7;
 	//getDriver will return the driverType user input 
 	// it is synchronized for multi Threading safety
 	public static synchronized WebDriver getDriver(String driverType) {
-	// beautifying the input Jun21RJR
+	// beautifying the input
 	driverType = driverType.trim().toLowerCase();
 	
 	DesiredCapabilities capabilities;
@@ -63,9 +63,7 @@ public class DriverFactory {
 			//adding phantom capability to browser https websites 
 			DesiredCapabilities phantomCaps = DesiredCapabilities.phantomjs(); // or new DesiredCapabilities();
 			phantomCaps.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS, 
-					// but the two below do help! 
-					new String[] {"--ssl-protocol=tlsv1","--web-security=false", "--ignore-ssl-errors=true"});
-			
+					new String[] {"--ssl-protocol=tlsv1","--web-security=false", "--ignore-ssl-errors=true"});			
 			driver = new PhantomJSDriver(phantomCaps);
 			driver.manage().window().setSize(new Dimension(1920, 1080));
 	        break;
@@ -73,7 +71,7 @@ public class DriverFactory {
 		default:
 			String msg = "RJR: Unknown driver type";
 			throw new IllegalArgumentException(msg);
-		} // driver type switchcase
+		} // driver type switch case
 
 		WebDriver.Timeouts timeouts = driver.manage().timeouts();
 		timeouts.implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
@@ -90,10 +88,10 @@ public class DriverFactory {
 					driver.getCurrentUrl();
 					driver.close();
 					//driver.quit();
-					System.out.printf("\n\n RJR: driver instance closed successfully =)\n\n");
+					System.out.printf("\n\n Yutaka: driver instance closed successfully =)\n\n");
 				} catch (Throwable e) {
-					System.out.printf("\n\n RJR: an exception was caught %s\n\n",e);
-				} //trycatch statement
+					System.out.printf("\n\n Yutaka: an exception was caught %s\n\n",e);
+				} //try catch statement
 			} // if statement
 		} // close method
 		
@@ -104,10 +102,10 @@ public class DriverFactory {
 						driver.getCurrentUrl();
 						driver.close();
 						driver.quit();
-						System.out.printf("\n\n RJR: driver instance closed successfully =)\n\n");
+						System.out.printf("\n\n Yutaka: driver instance closed successfully =)\n\n");
 					} catch (Throwable e) {
-						System.out.printf("\n\n RJR: an exception was caught %s\n\n",e);
-					} //trycatch statement
+						System.out.printf("\n\n Yutaka: an exception was caught %s\n\n",e);
+					} //try catch statement
 				} // if statement
 			} // close method
 

@@ -45,7 +45,7 @@ public class LoginTest extends TestData {
 		Assert.assertEquals(actual, expected, "login not successfull");
 	}
 	
-	@Test(enabled = true, groups = {"login", "regression", "all"}, priority = 0)
+	@Test(enabled = false, groups = {"login", "regression", "all"}, priority = 0)
 	public void testValidCredentialsLoginPopUp() {
 		String expected = "Hi, Tony Yutaka";
 		String actual = "";
@@ -65,14 +65,33 @@ public class LoginTest extends TestData {
 		Assert.assertEquals(actual, expected, "Username title doesn't match to User");
 	}
 	
-	@Test(enabled = true, groups = {"login", "regression", "all"}, priority = 0)
+	@Test(enabled = false, groups = {"login", "regression", "all"}, priority = 0)
 	public void testValidCredentialsLoginPopUp03() {
-		String expected = "HomePage";
-		String actual = "HomePage";
-		common.openHomePage();
+		String expected = "Hi, Tony Yutaka";
+		String actual = "";
+		//common.openHomePage();
+		actual = common.loginValidUserInPopUp(validUserName01, validPwd01);
 		Assert.assertEquals(actual, expected, "title doesn't match to expected");
 	}
 	
+	@Test(enabled = false, groups = {"login", "regression", "all"}) 
+	public void testLoginLogoutInPopUp01() {
+		common.opeLogInPopUp();
+		common.loginValidUserInPopUp(validUserName01, validPwd01);
+//SLEEP2();
+System.out.println("================= debug01 =================" );		
+		common.logOut();
+//SLEEP2();
+System.out.println("================= debug04 =================" );
+	}
 	
-
+	@Test(enabled = true, groups = {"login", "regression", "all"}) 
+	public void testQQQ01() {	
+SLEEP2();
+System.out.println("=================QQQ01 debug01 =================" );		
+SLEEP2();
+System.out.println("=================QQQ01 debug04 =================" );
+	}
+	
+	
 }

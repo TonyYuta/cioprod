@@ -42,6 +42,10 @@ public class TestData {
 
 	public String homePageUrl 			= "https://www.connectedio.com/";
 
+	public static int TIME1 = 10;
+	public static int TIME2 = 200;
+	public static int TIME3 = 3000;
+	
 	Common common;
 	LoginPage loginPage;
 	ContactUsPage contactUsPage;
@@ -66,25 +70,23 @@ public class TestData {
     @BeforeClass(alwaysRun = true)
     public void setUpBeforeClass() {
     	driverFactory = new DriverFactory();
+    }
+    
+    @BeforeMethod(alwaysRun = true)
+	public void setUpBeforeMethod() {	
     	driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
     	common = new Common(driver);
     	loginPage = new LoginPage(driver);
     	contactUsPage = new ContactUsPage(driver);
     	productsPage = new ProductsPage(driver);
-    }
-    
-    @BeforeMethod(alwaysRun = true)
-		public void setUpBeforeMethod() {	
-    	try {
-    	Thread.sleep(2000);
-    	} catch(Exception e) {
-    		e.printStackTrace();
-    	}
 		driver.get(homePageUrl);
+		common.opeLogInPopUp();
+		common.loginValidUserInPopUp(validUserName01, validPwd01);
 	}
     
 	@AfterMethod() 
 	public void afterTC() {
+		common.logOut();
 		driverFactory.closeBrowser(driver);
 	}	
 	
@@ -92,5 +94,31 @@ public class TestData {
 	public void tearDownAfterClass() {
 		driverFactory.quitBrowser(driver);
 	}
-	    
+
+	public static void SLEEP1() {
+		try {
+			Thread.sleep(TestData.TIME1);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				}
+	}
+	
+	public static void SLEEP2() {
+		try {
+			Thread.sleep(TestData.TIME2);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				}
+	}
+	
+	public static void SLEEP3() {
+		try {
+			Thread.sleep(TestData.TIME3);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				}
+	}
+
+	
+	
 }

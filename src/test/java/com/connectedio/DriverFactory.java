@@ -82,13 +82,14 @@ public class DriverFactory {
 	} // getDriver method
 	  	  
 	  // close will be used to close driver browser window 
-		public static synchronized void closeBrowser(WebDriver driver) {
+		//public static synchronized void closeBrowser(WebDriver driver) {
+		public static void closeBrowser(WebDriver driver) {
 			if (driver != null) {
 				try {
 					driver.getCurrentUrl();
 					driver.close();
 					//driver.quit();
-					System.out.printf("\n\n Yutaka: driver instance closed successfully =)\n\n");
+					System.out.printf("\n Yutaka: driver instance closed successfully =)\n");
 				} catch (Throwable e) {
 					System.out.printf("\n\n Yutaka: an exception was caught %s\n\n",e);
 				} //try catch statement
@@ -96,21 +97,21 @@ public class DriverFactory {
 		} // close method
 		
 		  // close will be used to quit driver browser 
-			public static synchronized void quitBrowser(WebDriver driver) {
+			public static void quitBrowser(WebDriver driver) {
 				if (driver != null) {
 					try {
 						driver.getCurrentUrl();
 						driver.close();
 						driver.quit();
-						System.out.printf("\n\n Yutaka: driver instance closed successfully =)\n\n");
+						System.out.printf("\n Yutaka: driver instance closed successfully =)\n");
 					} catch (Throwable e) {
-						System.out.printf("\n\n Yutaka: an exception was caught %s\n\n",e);
+						System.out.printf("\n Yutaka: an exception was caught %s\n",e);
 					} //try catch statement
 				} // if statement
 			} // close method
 
 			//addShutDownHook will be used to shut down all Threads of driver 
-		private static synchronized void addShutDownHook(final WebDriver driver) {
+		private static void addShutDownHook(final WebDriver driver) {
 			Runtime.getRuntime().addShutdownHook(new Thread() {
 				@Override
 				public void run() {
@@ -120,4 +121,5 @@ public class DriverFactory {
 			});
 		}// addShutDownHook method
 	
+		
 } //class

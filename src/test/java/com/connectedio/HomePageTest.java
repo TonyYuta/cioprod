@@ -22,7 +22,6 @@ public class HomePageTest extends TestData {
 	public void testNavigateToAllProductsPage() {
 		String expected = "https://www.connectedio.com/products";
 		String actual = "";
-		SLEEP2();
 		actual = common.navigateToAllProductsPage();
 		Assert.assertEquals(actual, expected, "URI doesn't match to All Products page");
 	}
@@ -31,7 +30,6 @@ public class HomePageTest extends TestData {
 	public void testNavigateToUseCasesPage() {
 		String expected = "https://www.connectedio.com/pages/product_cases";
 		String actual = "";
-		SLEEP2();
 		actual = common.navigateToUseCasesPage();
 		Assert.assertEquals(actual, expected, "URI doesn't match to Use Case page");
 	}
@@ -40,7 +38,6 @@ public class HomePageTest extends TestData {
 	public void testNavigateToCustomerTestimonialsPage() {
 		String expected = "https://www.connectedio.com/pages/testimonials";
 		String actual = "";
-		SLEEP2();
 		actual = common.navigateToCustomerTestimonialsPage();
 		Assert.assertEquals(actual, expected, "URI doesn't match to Testmonials page");
 	}

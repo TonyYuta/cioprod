@@ -46,9 +46,7 @@ public class Common {
 	public String allProductsTab = ".mega-menu-dropdown.su_products .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(1)>a";
 	public String useCasesTab = ".mega-menu-dropdown.su_products .col-md-6.col-lg-offset-6.col-md-offset-6 > li:nth-child(2)>a";
 	public String customerTestimonialsTab = ".mega-menu-dropdown.su_products .col-md-6.col-lg-offset-6.col-md-offset-6 > li:nth-child(3)>a";
-	
-	
-	   
+		   
     // id
 	public String pickMeSignedInCheckbox = "checkbox_id";
 	public String loginBtnInPopUp = "submit_button";
@@ -94,9 +92,9 @@ public class Common {
 System.out.println("================= debug02 =================" );
 		action.moveToElement(we).build().perform();
 System.out.println("================= debug03 =================" );
-TestData.SLEEP2();
+		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(logOutBtn)).click();
-TestData.SLEEP2();
+		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
 		return result = "nnnnnnnnnnnnnnnnnnnnnnnnnnn";
 	}
 	
@@ -104,7 +102,7 @@ TestData.SLEEP2();
 		action = new Actions(driver);
 		we = driver.findElement(By.cssSelector(productsTab));
 		action.moveToElement(we).build().perform();
-		TestData.SLEEP2();
+		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(allProductsTab)).click();
 		return driver.getCurrentUrl();
 	}
@@ -113,7 +111,7 @@ TestData.SLEEP2();
 		action = new Actions(driver);
 		we = driver.findElement(By.cssSelector(productsTab));
 		action.moveToElement(we).build().perform();
-		TestData.SLEEP2();
+		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(useCasesTab)).click();
 		return driver.getCurrentUrl();
 	}
@@ -122,7 +120,7 @@ TestData.SLEEP2();
 		action = new Actions(driver);
 		we = driver.findElement(By.cssSelector(productsTab));
 		action.moveToElement(we).build().perform();
-		TestData.SLEEP2();
+		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(customerTestimonialsTab)).click();
 		return driver.getCurrentUrl();
 	}

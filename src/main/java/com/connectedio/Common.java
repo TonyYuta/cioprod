@@ -92,9 +92,9 @@ public class Common {
 System.out.println("================= debug02 =================" );
 		action.moveToElement(we).build().perform();
 System.out.println("================= debug03 =================" );
-		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(logOutBtn)).click();
-		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		return result = "nnnnnnnnnnnnnnnnnnnnnnnnnnn";
 	}
 	
@@ -102,7 +102,7 @@ System.out.println("================= debug03 =================" );
 		action = new Actions(driver);
 		we = driver.findElement(By.cssSelector(productsTab));
 		action.moveToElement(we).build().perform();
-		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(allProductsTab)).click();
 		return driver.getCurrentUrl();
 	}
@@ -111,7 +111,7 @@ System.out.println("================= debug03 =================" );
 		action = new Actions(driver);
 		we = driver.findElement(By.cssSelector(productsTab));
 		action.moveToElement(we).build().perform();
-		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(useCasesTab)).click();
 		return driver.getCurrentUrl();
 	}
@@ -120,7 +120,7 @@ System.out.println("================= debug03 =================" );
 		action = new Actions(driver);
 		we = driver.findElement(By.cssSelector(productsTab));
 		action.moveToElement(we).build().perform();
-		try {Thread.sleep(200);} catch (InterruptedException e) {e.printStackTrace();}
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(customerTestimonialsTab)).click();
 		return driver.getCurrentUrl();
 	}

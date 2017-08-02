@@ -74,7 +74,12 @@ public class TestData {
     
     @BeforeMethod(alwaysRun = true)
 	public void setUpBeforeMethod() {	
-    	driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
+    	try {
+			driver = driverFactory.getDriver(BROWSER); // browser type received from CLO
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	common = new Common(driver);
     	loginPage = new LoginPage(driver);
     	contactUsPage = new ContactUsPage(driver);

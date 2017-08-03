@@ -88,6 +88,7 @@ public class Common {
 	public String logOut() {
 		String result = "";
 		action = new Actions(driver);		
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		we = driver.findElement(By.cssSelector(labelMyAccount));
 System.out.println("================= debug02 =================" );
 		action.moveToElement(we).build().perform();

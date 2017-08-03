@@ -89,13 +89,13 @@ public class TestData {
 		common.loginValidUserInPopUp(validUserName01, validPwd01);
 	}
     
-	@AfterMethod() 
+	@AfterMethod(alwaysRun = true) 
 	public void afterTC() {
 		common.logOut();
 		driverFactory.closeBrowser(driver);
 	}	
 	
-	@AfterClass(alwaysRun = false)
+	@AfterClass(alwaysRun = true)
 	public void tearDownAfterClass() {
 		driverFactory.quitBrowser(driver);
 	}

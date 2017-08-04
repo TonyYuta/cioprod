@@ -46,7 +46,27 @@ public class Common {
 	public String allProductsTab = ".mega-menu-dropdown.su_products .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(1)>a";
 	public String useCasesTab = ".mega-menu-dropdown.su_products .col-md-6.col-lg-offset-6.col-md-offset-6 > li:nth-child(2)>a";
 	public String customerTestimonialsTab = ".mega-menu-dropdown.su_products .col-md-6.col-lg-offset-6.col-md-offset-6 > li:nth-child(3)>a";
-		   
+	public String servicesTab = ".mega-menu-dropdown.su_services>a";
+	public String ourServicesTab = ".mega-menu-dropdown.su_services .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(1)>a";
+	public String productDesignTab = ".mega-menu-dropdown.su_services .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(2)>a";
+	public String testingAndSertificationTab = ".mega-menu-dropdown.su_services .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(3)>a";
+	public String logisticsConsultingTab = ".mega-menu-dropdown.su_services .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(4)>a";
+	public String supportTab = ".mega-menu-dropdown.su_support>a";
+	public String faqTab = ".mega-menu-dropdown.su_support .col-md-6.col-lg-offset-6.col-md-offset-6>li:first-child>a";
+	public String devicePortalV2Tab = ".mega-menu-dropdown.su_support .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(2)>a";
+	public String devicePortalV1Tab = ".mega-menu-dropdown.su_support .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(3)>a";
+	public String softwareTab = ".mega-menu-dropdown.su_support .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(4)>a";
+	public String corporateTab = ".mega-menu-dropdown.su_corporate>a";
+	public String aboutUsTab = ".mega-menu-dropdown.su_corporate .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(1)>a";
+	public String managementTeamTab = ".mega-menu-dropdown.su_corporate .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(2)>a";
+	public String websiteDisclaimerTab = ".mega-menu-dropdown.su_corporate .col-md-6.col-lg-offset-6.col-md-offset-6>li:nth-child(6)>a";
+	public String partnersTab = ".col-lg-6>li:first-child>a";
+	public String partnersLoginTab = ".col-lg-6>li:nth-child(2)>a";
+	public String partnersSignUpTab = ".col-lg-6>li:nth-child(3)>a";
+	public String registerDealTab = ".col-lg-6>li:nth-child(4)>a";
+	public String companyNewsTab = ".col-lg-6>li:nth-child(5)>a";
+	public String contactUsTab = ".col-lg-6>li:nth-child(6)>a";	
+	
     // id
 	public String pickMeSignedInCheckbox = "checkbox_id";
 	public String loginBtnInPopUp = "submit_button";
@@ -86,18 +106,17 @@ public class Common {
 	}
 
 	public String logOut() {
-		String result = "";
+		String result = "Log Out";
 		action = new Actions(driver);		
-		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		we = driver.findElement(By.cssSelector(labelMyAccount));
-System.out.println("================= debug02 =================" );
 		action.moveToElement(we).build().perform();
-System.out.println("================= debug03 =================" );
 		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(logOutBtn)).click();
 		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
-		return result = "nnnnnnnnnnnnnnnnnnnnnnnnnnn";
+		return result;
 	}
+	
+	// Products Tab
 	
 	public String navigateToAllProductsPage() {
 		action = new Actions(driver);
@@ -123,6 +142,147 @@ System.out.println("================= debug03 =================" );
 		action.moveToElement(we).build().perform();
 		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(customerTestimonialsTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	// Services Tab
+	
+	public String navigateToOurServicesPage() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(servicesTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(ourServicesTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToProductDesignPage() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(servicesTab));
+		action.moveToElement(we).build().perform();
+		try{Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(productDesignTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToTestingAndSertificationPage() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(servicesTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(testingAndSertificationTab)).click();
+		return driver.getCurrentUrl();
+	}	
+	
+	public String navigateToLogisticsConsultingTabPage() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(servicesTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(logisticsConsultingTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	// Support Tab
+	
+	public String navigateToFaqTabPage() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(supportTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(faqTab)).click();
+		return driver.getCurrentUrl();
+	}
+
+	public String navigateToSoftwareTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(supportTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(softwareTab)).click();
+		return driver.getCurrentUrl();
+	}
+
+	// Corporate Tab
+	
+	public String navigateToAboutUsTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(aboutUsTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToManagementTeamTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(managementTeamTab)).click();
+		return driver.getCurrentUrl();
+	}
+
+	public String navigateToWebsiteDisclaimerTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(websiteDisclaimerTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToPartnersTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(partnersTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToPartnersLoginTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(partnersLoginTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToPartnersSignUpTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(partnersSignUpTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToRegisterDealTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(registerDealTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToCompanyNewsTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(companyNewsTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String navigateToContactUsTab() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(corporateTab));
+		action.moveToElement(we).build().perform();
+		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.cssSelector(contactUsTab)).click();
 		return driver.getCurrentUrl();
 	}
 	

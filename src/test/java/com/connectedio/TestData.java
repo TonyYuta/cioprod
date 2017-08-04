@@ -48,6 +48,7 @@ public class TestData {
 	
 	Common common;
 	LoginPage loginPage;
+	HomePage homePage;
 	ContactUsPage contactUsPage;
 	ProductsPage productsPage;	
 	DriverFactory driverFactory;
@@ -82,6 +83,7 @@ public class TestData {
 		}
     	common = new Common(driver);
     	loginPage = new LoginPage(driver);
+    	homePage = new HomePage(driver);
     	contactUsPage = new ContactUsPage(driver);
     	productsPage = new ProductsPage(driver);
 		driver.get(homePageUrl);

@@ -70,7 +70,7 @@ public class HomePageTest extends TestData {
 
 	@Test(enabled = true, groups = {"products", "regression", "all"}, priority = 0)
 	public void testNavigateToLogisticsConsultingPage() {
-		String expected = "https://www.connectedio.com/pages/services/logistics-consulting_";
+		String expected = "https://www.connectedio.com/pages/services/logistics-consulting";
 		String actual = "";
 		actual = common.navigateToLogisticsConsultingTabPage();
 		Assert.assertEquals(actual, expected, "URI doesn't match to LOGISTICS CONSULTING page");
@@ -180,6 +180,7 @@ public class HomePageTest extends TestData {
 		actual = common.navigateToContactUsTab();
 		Assert.assertEquals(actual, expected, "URI doesn't match to CONTACT US page");
 	}
+
 
 
 	

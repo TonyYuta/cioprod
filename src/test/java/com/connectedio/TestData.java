@@ -50,7 +50,7 @@ public class TestData {
 	LoginPage loginPage;
 	HomePage homePage;
 	ContactUsPage contactUsPage;
-	ProductsPage productsPage;	
+	AllProductsPage allProductsPage;	
 	DriverFactory driverFactory;
 
 	WebDriver driver;
@@ -85,7 +85,7 @@ public class TestData {
     	loginPage = new LoginPage(driver);
     	homePage = new HomePage(driver);
     	contactUsPage = new ContactUsPage(driver);
-    	productsPage = new ProductsPage(driver);
+    	allProductsPage = new AllProductsPage(driver);
 		driver.get(homePageUrl);
 		common.opeLogInPopUp();
 		common.loginValidUserInPopUp(validUserName01, validPwd01);

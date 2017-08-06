@@ -8,6 +8,8 @@
     <test name="prod" preserve-order="true">
         <classes>
             <class name="com.connectedio.HomePageTest"/>
+            <class name="com.connectedio.ProductsTest"/>
+            
             <!-- <class name="com.connectedio.LoginTest"/> -->
         </classes>
     </test>

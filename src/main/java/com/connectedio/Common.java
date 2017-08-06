@@ -33,7 +33,6 @@ public class Common {
 
 	//cssSelector
 	public String homePageTab = ".active>a";
-//	public String allProductsTab = ".mega-menu-dropdown.su_products .mega-menu.row .col-md-6.col-lg-offset-6.col-md-offset-6:nth-child(1)>li:first-child>a";
 	public String logInBtn = ".header_login.clickon_to_drop>a";
 	public String closeLogInPopUp = ".close.fa.fa-close";
 	public String userNameField = "#loginForm > input[type='text']:nth-child(1)";
@@ -66,6 +65,8 @@ public class Common {
 	public String registerDealTab = ".col-lg-6>li:nth-child(4)>a";
 	public String companyNewsTab = ".col-lg-6>li:nth-child(5)>a";
 	public String contactUsTab = ".col-lg-6>li:nth-child(6)>a";	
+	public String cartBtn = ".header_left.full-width > ul > li:nth-child(3)";	
+	public String goToCartPageBtn = ".header_cart.click_to_drop > ul > li > a";	
 	
     // id
 	public String pickMeSignedInCheckbox = "checkbox_id";
@@ -283,6 +284,14 @@ public class Common {
 		action.moveToElement(we).build().perform();
 		try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.cssSelector(contactUsTab)).click();
+		return driver.getCurrentUrl();
+	}
+	
+	public String openCart() {
+		action = new Actions(driver);
+		we = driver.findElement(By.cssSelector(cartBtn));
+		action.moveToElement(we).build().perform();
+		driver.findElement(By.cssSelector(goToCartPageBtn)).click();
 		return driver.getCurrentUrl();
 	}
 	

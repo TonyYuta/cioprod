@@ -79,19 +79,11 @@ public class LoginTest extends TestData {
 		common.opeLogInPopUp();
 		common.loginValidUserInPopUp(validUserName01, validPwd01);
 //SLEEP2();
-System.out.println("================= debug01 =================" );		
 		common.logOut();
 //SLEEP2();
-System.out.println("================= debug04 =================" );
 	}
 	
-	@Test(enabled = true, groups = {"login", "regression", "all"}) 
-	public void testQQQ01() {	
-SLEEP2();
-System.out.println("=================QQQ01 debug01 =================" );		
-SLEEP2();
-System.out.println("=================QQQ01 debug04 =================" );
-	}
+
 	
 	
 }

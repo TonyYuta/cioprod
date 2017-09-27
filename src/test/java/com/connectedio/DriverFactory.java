@@ -37,6 +37,7 @@ public class DriverFactory {
 	switch (driverType) {
 		case "chrome":
 		    System.setProperty("webdriver.chrome.driver", "/Library/chromedriver");
+			//System.setProperty("webdriver.chrome.driver", "./resources/webdrivers/mac/chromedriver");
 			capabilities = DesiredCapabilities.chrome();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("test-type");
@@ -49,6 +50,7 @@ public class DriverFactory {
 		
 		case "firefox":
 			System.setProperty("webdriver.gecko.driver","/Library/geckodriver");
+	//		System.setProperty("webdriver.gecko.driver","/cioprod/resources/webdrivers/mac/geckodriver");			
 		    capabilities = DesiredCapabilities.firefox();
 		    capabilities.setCapability("marionette", true);
 		    driver = new FirefoxDriver(capabilities);
@@ -69,7 +71,7 @@ public class DriverFactory {
 	        break;
 				
 		default:
-			String msg = "RJR: Unknown driver type";
+			String msg = "Unknown driver type";
 			throw new IllegalArgumentException(msg);
 		} // driver type switch case
 

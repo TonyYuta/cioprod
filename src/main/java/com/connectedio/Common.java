@@ -288,10 +288,23 @@ public class Common {
 	}
 	
 	public String openCart() {
+		System.out.println("==================== common 01 ======================");
+
 		action = new Actions(driver);
+		System.out.println("==================== common 02 ======================");
+
 		we = driver.findElement(By.cssSelector(cartBtn));
+		System.out.println("==================== common 03 ======================");
+//		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+
 		action.moveToElement(we).build().perform();
+//		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+
+		System.out.println("==================== common 04 ======================");
+
 		driver.findElement(By.cssSelector(goToCartPageBtn)).click();
+		System.out.println("==================== common 05 ======================");
+
 		return driver.getCurrentUrl();
 	}
 	
